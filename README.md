@@ -1,5 +1,5 @@
 This script forked from snorf/salesforce-files-download.  I had need to be able to perform extensive extractions.  
-In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  
+
 
 Highlight Features include
   - Threading and session reuse for speed: In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
