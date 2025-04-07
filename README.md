@@ -2,20 +2,23 @@
 	
 	
 	Highlight Features include
-		1.  Threading and session reuse for speed: In testing, able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
-		2.  Ability to supply include or exclude ID list which will exclusively include/exclude your specified ContentVersionIDs or AttachmentIDs based on csv file.
-		3.  Metadata file creation.  Very flexible w/ success/failure audit of download.  Also an illegal chars mask which shows which chars would have caused your downloads to fail in windows file system if not stripped.
-		4.  Illegal Char stripping from file creation path and filename.
-		5.  Double/dup file extension sanitization (removes troublesome double extensions like yourfilename.Pdf.pdf will be downloaded as yourfilename.pdf).
-		6.  Sensitive Credentials Hiding:  If you need to run an extraction but your SF admin will not give you pw and access token:
-			a. then you can prepare your usage w/ this script and accompaning ini file (leave the pw and token fields blank in the ini file)
+		1. Threading and session reuse for speed: In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
+		2. Flexible SOQL handling:  This solution is fully dynamic and robust. 
+  			a. This Python script will seamlessly and correctly handle any SOQL query.
+			b. Whether it contains standard fields, nested fields, or polymorphic (TYPEOF) fields, without manual intervention or special-case handling.
+		3. Metadata file creation.  Very flexible w/ success/failure audit of download.  Also an illegal chars mask which shows which chars would have caused your downloads to fail in windows file system if not stripped.
+		4. Ability to supply include or exclude ID list which will exclusively include/exclude your specified ContentVersionIDs or AttachmentIDs based on csv file.
+		5. Auto Timestamp on Extraction directory: Add Date Timestamp Dir automatically each time you run script (True or False)?  Format like YYYYMMDDHHmmss (i.e. 20250403151336)
+		6. Double/dup file extension sanitization (removes troublesome double extensions like yourfilename.Pdf.pdf will be downloaded as yourfilename.pdf).
+		7. Illegal Char stripping from file creation path and filename.
+		8. Alternate ini file created at runtime if user wishes.  Allows for runtime arguments to be specified/retrieved from ini file (initialization file).
+		9. Sensitive Credentials Hiding:  If you need to run an extraction but your SF admin will not give you pw and access token:
+			a. then you can prepare your usage w/ this script and accompanying ini file (leave the pw and token fields blank in the ini file)
 			b. share your screen w/ your admin and provide control
-			c. Kick off your script and it will automaticly prompt for credentials not specified in the ini file.  
+			c. Kick off your script and it will automatically prompt for credentials not specified in the ini file.  
 			d. Admin enters credentials (entry is fully hidden and session fully disposed when script finishes running)
 			e. Facilitates secret credential passing over shared desktop from admin to developer or end user.
-		7.  Auto Timestamp on Extraction directory: Add DateTimeStamp Dir automaticly each time you run script (True or False)?  Format like YYYYMMDDHHmmss (i.e. 20250403151336)
-		8.  Flexible SOQL handling:  This solution is fully dynamic and robust. This Python script will seamlessly and correctly handle any SOQL query.
-			a. Whether it contains standard fields, nested fields, or polymorphic (TYPEOF) fields, without manual intervention or special-case handling.
+
 	  
 	
 	
