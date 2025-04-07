@@ -1,46 +1,46 @@
-This script forked from snorf/salesforce-files-download.  I had need to be able to perform extensive extractions.  
-
-
-Highlight Features include
-	1.  Threading and session reuse for speed: In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
-	2.  Ability to supply include or exclude ID list which will exclusively include/exclude your specified ContentVersionIDs or AttachmentIDs based on csv file.
-	3.  Metadata file creation.  Very flexible w/ success/failure audit of download.  Also an illegal chars mask which shows which chars would have caused your downloads to fail in windows file system if not stripped.
-	4.  Illegal Char stripping from file creation path and filename.
-	5.  Double/dup file extension sanitization (removes troublesome double extensions like yourfilename.Pdf.pdf will be downloaded as yourfilename.pdf).
-	6.  Sensitive Credentials Hiding:  If you need to run an extraction but your SF admin will not give you pw and access token:
-		a. then you can prepare your usage w/ this script and accompaning ini file (leave the pw and token fields blank in the ini file)
-		b. share your screen w/ your admin and provide control
-		c. Kick off your script and it will automaticly prompt for credentials not specified in the ini file.  
-		d. Admin enters credentials (entry is fully hidden and session fully disposed when script finishes running)
-		e. Facilitates secret credential passing over shared desktop from admin to developer or end user.
-	7.  Auto Timestamp on Extraction directory: Add DateTimeStamp Dir automaticly each time you run script (True or False)?  Format like YYYYMMDDHHmmss (i.e. 20250403151336)
-	8.  Flexible SOQL handling:  This solution is fully dynamic and robust. This Python script will seamlessly and correctly handle any SOQL query.
-		a. Whether it contains standard fields, nested fields, or polymorphic (TYPEOF) fields, without manual intervention or special-case handling.
-  
-
-
-usage: Download.py [-h] [-q QUERY] [-f FILENAMEPATTERN] [-m METADATA] [-t THREADCOUNT]     Export Salesforce Files                                                                                                 
-  options:
-    -h, --help            show this help message and exit
-    -q QUERY, --query QUERY
-                          SOQL query to select files. You can query from ContentDocument, ContentDocumentLink,
-                          ContentVersion or Attachment object. All selected fields included in SOQL can be ported to -f
-                          and/or -m arguments for flexibility. Manditory Include ContentVersion.VersionData or
-                          Attachment.Body for File Creation.
-    -f FILENAMEPATTERN, --filenamepattern FILENAMEPATTERN
-                          Filename pattern using ordinal position of SOQL fields. default={1}\{2}_{3}.{4} Be Aware that
-                          if you dont specify the ID Column in this pattern, you may end up having duplicate filenames
-                          overwrite each other which will make it seem that not all files are extracted.
-    -m METADATA, --metadata METADATA
-                          Comma-separated indexed fields for metadata CSV output, e.g. "1,2,3"
-    -t THREADCOUNT, --threadcount THREADCOUNT
-                          Number of concurrent threads
-
-
-
-Alternate ini file: created at runtime if user wishes.  Content below shows the extended features and flexibility of this script.
-        [salesforce]
-                username = YourUserName@somedomain.com
+	This script forked from snorf/salesforce-files-download.  I had need to be able to perform extensive extractions.  
+	
+	
+	Highlight Features include
+		1.  Threading and session reuse for speed: In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
+		2.  Ability to supply include or exclude ID list which will exclusively include/exclude your specified ContentVersionIDs or AttachmentIDs based on csv file.
+		3.  Metadata file creation.  Very flexible w/ success/failure audit of download.  Also an illegal chars mask which shows which chars would have caused your downloads to fail in windows file system if not stripped.
+		4.  Illegal Char stripping from file creation path and filename.
+		5.  Double/dup file extension sanitization (removes troublesome double extensions like yourfilename.Pdf.pdf will be downloaded as yourfilename.pdf).
+		6.  Sensitive Credentials Hiding:  If you need to run an extraction but your SF admin will not give you pw and access token:
+			a. then you can prepare your usage w/ this script and accompaning ini file (leave the pw and token fields blank in the ini file)
+			b. share your screen w/ your admin and provide control
+			c. Kick off your script and it will automaticly prompt for credentials not specified in the ini file.  
+			d. Admin enters credentials (entry is fully hidden and session fully disposed when script finishes running)
+			e. Facilitates secret credential passing over shared desktop from admin to developer or end user.
+		7.  Auto Timestamp on Extraction directory: Add DateTimeStamp Dir automaticly each time you run script (True or False)?  Format like YYYYMMDDHHmmss (i.e. 20250403151336)
+		8.  Flexible SOQL handling:  This solution is fully dynamic and robust. This Python script will seamlessly and correctly handle any SOQL query.
+			a. Whether it contains standard fields, nested fields, or polymorphic (TYPEOF) fields, without manual intervention or special-case handling.
+	  
+	
+	
+	usage: Download.py [-h] [-q QUERY] [-f FILENAMEPATTERN] [-m METADATA] [-t THREADCOUNT]     Export Salesforce Files                                                                                                 
+	  options:
+	    -h, --help            show this help message and exit
+	    -q QUERY, --query QUERY
+	                          SOQL query to select files. You can query from ContentDocument, ContentDocumentLink,
+	                          ContentVersion or Attachment object. All selected fields included in SOQL can be ported to -f
+	                          and/or -m arguments for flexibility. Manditory Include ContentVersion.VersionData or
+	                          Attachment.Body for File Creation.
+	    -f FILENAMEPATTERN, --filenamepattern FILENAMEPATTERN
+	                          Filename pattern using ordinal position of SOQL fields. default={1}\{2}_{3}.{4} Be Aware that
+	                          if you dont specify the ID Column in this pattern, you may end up having duplicate filenames
+	                          overwrite each other which will make it seem that not all files are extracted.
+	    -m METADATA, --metadata METADATA
+	                          Comma-separated indexed fields for metadata CSV output, e.g. "1,2,3"
+	    -t THREADCOUNT, --threadcount THREADCOUNT
+	                          Number of concurrent threads
+	
+	
+	
+	Alternate ini file: created at runtime if user wishes.  Content below shows the extended features and flexibility of this script.
+	        [salesforce]
+	                username = YourUserName@somedomain.com
         
                 password = YourSF_PW
         
