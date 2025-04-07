@@ -407,7 +407,7 @@ def main():
                     '  python script.py -q "SELECT Id, Name, Body FROM Attachment LIMIT 100"\n'  
                     '  python script.py -q "SELECT LatestPublishedVersion.Id, Title, FileExtension FROM ContentDocument LIMIT 50" -t 15\n\n'  
 					'Highlight Features include\n'  
-					'	1. Threading and session reuse for speed: In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.\n'  
+					'	1. Threading and session reuse for speed: In testing, was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.\n'  
 					'	2. Flexible SOQL handling:  This solution is fully dynamic and robust. \n'  
 					'		a. This Python script will seamlessly and correctly handle any SOQL query.\n'  
 					'		b. Whether it contains standard fields, nested fields, or polymorphic (TYPEOF) fields, without manual intervention or special-case handling.\n'  
