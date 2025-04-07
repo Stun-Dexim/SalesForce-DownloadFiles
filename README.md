@@ -2,7 +2,7 @@ This script forked from snorf/salesforce-files-download.  I had need to be able 
 
 
 # Highlight Features include
-	1. Threading and session reuse for speed: In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
+	1. Threading and session reuse for speed: In testing, was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
 	2. Flexible SOQL handling:  This solution is fully dynamic and robust. 
 		a. This Python script will seamlessly and correctly handle any SOQL query.
 		b. Whether it contains standard fields, nested fields, or polymorphic (TYPEOF) fields, without manual intervention or special-case handling.
