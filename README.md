@@ -2,7 +2,7 @@
 	
 	
 	Highlight Features include
-		1.  Threading and session reuse for speed: In my testing, I was able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
+		1.  Threading and session reuse for speed: In testing, able to download 80k file (contentversion) in 45 min and an accompanying metadata file is always produced.  YMMV depending on network connection, etc.
 		2.  Ability to supply include or exclude ID list which will exclusively include/exclude your specified ContentVersionIDs or AttachmentIDs based on csv file.
 		3.  Metadata file creation.  Very flexible w/ success/failure audit of download.  Also an illegal chars mask which shows which chars would have caused your downloads to fail in windows file system if not stripped.
 		4.  Illegal Char stripping from file creation path and filename.
