@@ -98,4 +98,4 @@ Alternate ini file: created at runtime if user wishes.  Content below shows the 
         
                 AttachID_list_Incl_or_Excl = Include  
                         #Include or Exclude: Clearly specify "Include" or "Exclude" in the INI. The default is "Include" if unspecified.
-![image](https://github.com/user-attachments/assets/771e8f50-ed28-4037-99b4-0bf8dec16367)
+
