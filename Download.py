@@ -233,7 +233,7 @@ def download_file(args):
                 status = f"Failed (Exception: {str(e)})"  
       
     else:  # Existing logic unchanged for ContentDocument/ContentVersion  
-        version_data_url = get_nested_field(record, 'LatestPublishedVersion.VersionData') or record.get('VersionData')  
+        version_data_url = get_nested_field(record, 'LatestPublishedVersion.VersionData') or get_nested_field(record, 'ContentDocument.LatestPublishedVersion.VersionData') or record.get('VersionData')  
         if not version_data_url:  
             status = 'Failed (No VersionData URL)'  
         else:  
