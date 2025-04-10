@@ -386,11 +386,11 @@ def main():
         if salesforce_object == 'attachment':  
             sf_id_field = 'Id'  
         elif salesforce_object == 'contentdocument':  
-            sf_id_field = 'LatestPublishedVersion.Id'  
+            sf_id_field = 'LatestPublishedVersion.Id'  or 'LatestPublishedVersionId' 
         elif salesforce_object == 'contentversion':  
             sf_id_field = 'Id'  
         elif salesforce_object == 'contentdocumentlink':  
-            sf_id_field = 'ContentDocument.LatestPublishedVersion.Id'  
+            sf_id_field = 'ContentDocument.LatestPublishedVersionId' or  'ContentDocument.LatestPublishedVersion.Id'  
         else:  
             logging.error(f"Unsupported Salesforce object for ID filtering: {salesforce_object}.")  
             exit(1)  
