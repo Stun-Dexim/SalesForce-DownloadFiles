@@ -219,7 +219,7 @@ def download_file(args):
                 response = session.get(url, headers={  
                     "Authorization": "OAuth " + sf.session_id,  
                     "Content-Type": "application/octet-stream"  
-                }, timeout=600)  
+                }, timeout=2500)  
       
                 if response.ok:  
                     os.makedirs(os.path.dirname(filename), exist_ok=True)  
@@ -242,7 +242,7 @@ def download_file(args):
                 response = session.get(url, headers={  
                     "Authorization": "OAuth " + sf.session_id,  
                     "Content-Type": "application/octet-stream"  
-                }, timeout=600)  
+                }, timeout=2500)  
       
                 if response.ok:  
                     os.makedirs(os.path.dirname(filename), exist_ok=True)  
